@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,7 +18,7 @@ jobs:
         run: |
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
-          find . -name "*.html" | while read fname; do
+          find . -path ./\.git -prune -o -path ./.github -prune -o -name "*.html" -print | while read fname; do
             clean_path="${fname#./}"
             echo "  <url><loc>https://sandiegoinbloom.com/${clean_path}</loc></url>" >> sitemap.xml
           done
@@ -28,3 +31,4 @@ jobs:
           git add sitemap.xml
           git commit -m "Generate sitemap.xml" || echo "No changes to commit"
           git push
+
