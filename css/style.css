@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow-y: auto; /* ✅ Allows vertical scrolling */
+  overflow-x: hidden; /* ✅ Prevents unwanted horizontal scroll */
+  color: #333;
+  box-sizing: border-box;
+
+  background-image: url('https://res.cloudinary.com/dqhrahy8h/image/upload/f_auto,q_auto,w_auto/v1745984673/SanDiego-flowers-abstract-bokeh-bubbles-dr_2_nigaeq.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+  /* Welcome screen centered */
+#welcome-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  opacity: 1; /* Start fully visible */
+  transition: opacity 1s ease; /* Smooth fade over 1 second */
+  font-family: 'Great Vibes', cursive;
+  font-size: 100px;
+}
+
+/* Hidden state */
+#welcome-screen.fade-out {
+  opacity: 0;
+}
+
+
+
+/* Main content hidden initially */
+#main-content {
+  display: none;
+}
+
+
+
+/* Sidebar menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background: transparent;
+  padding: 30px 20px;
+  z-index: 10;
+  
+  /* Ensures vertical scrolling is allowed */
+  overflow-y: auto;   
+ 
+}
+
+.overlay h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 30px;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.overlay p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.overlay nav a {
+  display: block;
+  font-size: 16px;
+  margin: 12px 0;
+  padding: 8px 0;
+  color: black;
+  text-decoration: none;
+}
+
+.overlay nav a:hover {
+  text-decoration: underline;
+  padding-left: 5px;
+}
+
+/* Slideshow (index.html) */
+.slideshow-container {
+ 
+  width: 100%;
+  height: 100vh;
+  /*padding-top: 56.25%;  /* This gives a 16:9 aspect ratio (adjust as needed for different ratios) */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slideshow-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slideshow-container img.active {
+  opacity: 1;
+}
+
+/* Content Area */
+.main-content {
+  margin-left: 280px;
+  padding: 40px;
+  max-width: 800px;
+}
+
+/* About/Contact headers */
+.main-content h2 {
+  font-size: 26px;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 20px;
+}
+
+/* Improved spacing for About and Contact text */
+.main-content p {
+  font-size: 16px;
+  line-height: 1.8;         /* Increased line spacing */
+  margin-bottom: 24px;      /* Extra space between paragraphs */
+}
+
+
+/* Gallery layout */
+h2 {
+  margin-left: 260px;
+  padding: 20px 40px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  margin-left: 260px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.1em;
+}
+
+/* Ensure space between overlay content */
+.overlay {
+  text-align: center; /* Center the text and menu */
+  padding: 20px;
+}
+
+/* Style the navigation menu */
+nav {
+  margin-bottom: 30px; /* Adds space between menu and icons */
+}
+
+nav a {
+  margin: 0 15px;  /* Space out the menu links */
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+/* Style the social media icons */
+.social-media-icons {
+  display: flex;
+  justify-content: center;  /* Center the icons horizontally */
+  gap: 20px;  /* Space between the icons */
+  margin-top: 20px;  /* Adds space between the menu and icons */
+}
+
+/* Style the icons */
+.social-media-icons a {
+  font-size: 40px;  /* Icon size */
+  color: #333;  /* Default color */
+  text-decoration: none;  /* Remove underline */
+}
+
+/* Change color on hover */
+.social-media-icons a:hover {
+  color: #0077b5;  /* Example hover color */
+}
+
+.photo-gallery {
+  max-width: 1000px;
+  margin-left: 250px; /* Push content to the right of the overlay */
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.photo-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.photo-gallery img:hover {
+  transform: scale(1.03);
+}
+
+h2 {
+  margin-left: 250px; /* Align with gallery */
+  padding: 20px;
+}
+
+h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5em;
+  text-align: center;
+  color: #333;
+  margin-left: 250px; /* same offset as content */
+  margin-top: 40px;
+}
+
+/* Default layout for larger screens */
+.photo-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  margin-left: 280px;
+   /*  Offset the content so it does not overlap the sidebar */
+}
+
+.photo-detail img {
+  width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.photo-description {
+  max-width: 600px;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.photo-description h2 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+
+.image-link {
+  text-align: center;
+}
+
+.image-link img {
+  width: 550px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.buy-print-text {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+}
+
+/* For narrow screens: */
+@media screen and (max-width: 768px) {
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;  /* Full width for the sidebar */
+    height: auto;
+    padding: 10px;
+    background: transparent;
+    z-index: 10;
+  }
+
+  /* Move the header and menu to the top of the screen */
+  .overlay h1,
+  .overlay nav {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .overlay h1 {
+    font-size: 24px;  /* Smaller size for narrow screens */
+  }
+
+  /* Stack the menu vertically for smaller screens */
+  .overlay nav {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .overlay nav a {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  /* Stack the photo and description vertically */
+  .photo-detail {
+    flex-direction: column;  /* Stack image and description vertically */
+    align-items: center;     /* Center content */
+    gap: 1rem;
+    margin-left: 0; /* Remove left margin to prevent overlap */
+    padding: 2rem 1rem;
+  }
+
+  .photo-detail img {
+    width: 90%;  /* Resize image to be responsive */
+    max-width: 500px; /* Limit image width */
+  }
+
+  .photo-description {
+    width: 90%; /* Allow description to take full width */
+    text-align: center;
+  }
+}
+
+/* For very narrow screens, ensure no overflow */
+@media screen and (max-width: 600px) {
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    
+  }
+
+  .overlay {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* For narrow screens (adjust slideshow images) */
+@media screen and (max-width: 768px) {
+ 
+
+  /* Make sure images still adjust to screen size */
+  .slideshow-container picture img {
+    width: 100%;
+    height: 100vh;  /* Full height of the viewport */
+    object-fit: cover;
+    
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .overlay {
+    position: relative; /* 🟢 Allow it to scroll with content */
+    width: 100%;
+    height: auto;
+    z-index: 0; /* 🟢 Lower priority than clickable items */
+    background: transparent;
+  }
+
+  .gallery-grid,
+  .photo-gallery,
+  h2 {
+    margin-left: 0 !important;  /* 🟢 Remove side offset on mobile */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding: 20px;
+  }
+}
+
+/* Default nav: always visible */
+#main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Hide menu toggle on large screens */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  #main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    
+  }
+
+  #main-nav.show {
+    display: flex;
+  }
+
+  
+}
+
+.fineart-link {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.fineart-link a {
+  color: #336699;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.fineart-link a:hover {
+  text-decoration: underline;
+}
+
+.fineart-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #336699;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.fineart-button:hover {
+  background-color: #254d73;
+}
+
+.gallery-nav {
+  display: flex;
+  justify-content: center; /* centers the items horizontally */
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.gallery-nav a {
+  font-size: 0.95rem; /* smaller font */
+  text-decoration: none;
+  color: #333333; /* darker text */
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  background-color: transparent; /* no white background */
+}
+
+.gallery-nav a:hover {
+  background-color: rgba(90, 90, 90, 0.1); /* gentle hover effect */
+  color: #2d6a4f; /* soft green on hover */
+}
+
+.gallery-nav a {
+  word-break: break-word;
+  /* or */
+  white-space: normal;
+}
+.gallery-nav a {
+  position: relative;
+  z-index: 10;
+}
