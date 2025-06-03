@@ -510,3 +510,13 @@ h2 {
   position: relative;
   z-index: 10;
 }
+
+footer {
+  text-align: center;
+  font-size: 1em;          /* smaller text */
+  color: #333;                /* darker gray for better readability */
+  margin-top: 2em;
+  padding: 0.5em 0;           /* tighter spacing */
+  line-height: 1.4;
+}
+
