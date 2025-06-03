@@ -519,3 +519,35 @@ footer {
   padding: 0.5em 0;           /* tighter spacing */
   line-height: 1.4;
 }
+
+.collection-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap; /* allows stacking on small screens */
+  margin-bottom: 2rem;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  min-width: 300px;
+}
+
+.photo-gallery img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.collection-description {
+  max-width: 500px;
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+}
+
