@@ -86,4 +86,13 @@ function toggleMenu() {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
+document.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll('#main-nav a');
+  const currentPath = window.location.pathname.split("/").pop();
 
+  links.forEach(link => {
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.add("active");
+    }
+  });
+});

@@ -551,3 +551,16 @@ footer {
   text-align: left;
 }
 
+.blog-intro {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 1rem;
+}
+#main-nav a.active {
+  font-weight: bold;
+  color: #d26a5c; /* You can customize this color */
+  text-decoration: underline;
+}
