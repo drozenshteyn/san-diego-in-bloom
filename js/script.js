@@ -96,3 +96,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tagContainer = document.querySelector(".post-tags");
+  if (!tagContainer) return;
+
+  const tags = tagContainer.dataset.tags;
+  if (!tags) return;
+
+  const tagArray = tags.split(",");
+  tagContainer.innerHTML = "";
+
+  tagArray.forEach(tag => {
+    const tagLink = document.createElement("a");
+    tagLink.href = `/bloom-journal.html?tag=${encodeURIComponent(tag.trim())}`;
+    tagLink.textContent = `#${tag.trim()}`;
+    tagLink.classList.add("tag-link");
+    tagContainer.appendChild(tagLink);
+  });
+});
+
+

@@ -564,3 +564,110 @@ footer {
   color: #d26a5c; /* You can customize this color */
   text-decoration: underline;
 }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center; /* centers grid items if they don't fill the row */
+  max-width: 800px;       /* optional: limits overall grid width */
+  margin: 0 auto;          /* centers the grid horizontally */
+}
+
+/* Container for the blog post content */
+.blog-post {
+  max-width: 800px;       /* keeps content from stretching too wide */
+  margin: 2em auto 4em;   /* centers the post horizontally, adds vertical spacing */
+  padding: 0 1rem;        /* horizontal padding so text doesn't touch edges */
+  font-family: 'Open Sans', Arial, sans-serif; /* or your preferred body font */
+  line-height: 1.6;
+  color: #333;            /* readable text color */
+}
+
+/* Headings inside blog post */
+.blog-post h2, .blog-post h3 {
+  font-family: 'Great Vibes', cursive; /* use your special font for headings */
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  color: #2a5d34; /* example: a nice dark green */
+}
+
+/* Images inside blog post */
+.blog-post img {
+  max-width: 100%;       /* responsive images */
+  height: auto;
+  display: block;
+  margin: 1em auto;
+  border-radius: 8px;    /* optional soft corners */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* subtle shadow for depth */
+}
+
+/* Date styling */
+.post-date {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 1.5em;
+}
+
+.blog-post h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.75rem;   /* Increased from default; try 2rem for even more impact */
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  color: #2a5d34;
+}
+
+.post-tags {
+  margin-top: 2em;
+}
+
+.tag-link {
+  display: inline-block;
+  background-color: #eef6ec;
+  color: #336633;
+  padding: 0.4em 0.7em;
+  margin: 0.3em;
+  border-radius: 15px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.tag-link:hover {
+  background-color: #d6eadf;
+}
+
+#tag-filter {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag-list li {
+  background-color: #d8f0d4;
+  padding: 7px 18px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.tag-list li a {
+  text-decoration: none;
+  color: #2c662d;
+  transition: color 0.3s ease;
+}
+
+.tag-list li a:hover {
+  color: #145214;
+  text-decoration: underline;
+}
+

@@ -28,6 +28,7 @@
   <meta name="twitter:title" content="Bloom Journal – San Diego in Bloom" />
   <meta name="twitter:description" content="Follow along with dreamy photo stories from gardens and trails in San Diego." />
 
+  <!-- Styles & Fonts -->
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -42,7 +43,7 @@
     <nav id="main-nav">
       <a href="index.html">Welcome</a>
       <a href="photography-collections.html">Collections</a>
-      <a href="bloom-journal.html">Bloom Journal</a>
+      <a href="/bloom-journal.html" class="active">Bloom Journal</a>
       <a href="about.html">Behind the Lens</a>
       <a href="contact.html">Say Hello</a>
     </nav>
@@ -60,17 +61,43 @@
   </div>
 
   <h2>Bloom Journal</h2>
-  <div class="blog-intro">
-    <p>Welcome to the Bloom Journal — a space where I share photo stories, seasonal flower finds, and thoughts from behind the lens. Each post highlights the beauty of San Diego's natural spaces, from coastal cliffs to desert blooms.</p>
+<div class="blog-intro">
+  <p>Welcome to the Bloom Journal — a space where I share photo stories, seasonal flower finds, and thoughts from behind the lens. Each post highlights the beauty of San Diego's natural spaces, from coastal cliffs to desert blooms.</p>
+</div>
+
+<!-- Blog Grid styled like Collections -->
+<div class="gallery-grid-wrapper">
+
+  <!-- Single year archive tile -->
+  <div class="gallery-grid">
+    <a href="blog/2025/index.html" class="gallery-item year-archive-tile">
+      <img src="https://res.cloudinary.com/dqhrahy8h/image/upload/f_auto,q_auto,w_auto/v1749768989/SanDiego-Blue-Sky-Ecological-Reserve-blog-post_6_kchsuc.jpg" alt="2025 blog archive">
+      <div class="gallery-title">2025 Blog Posts</div>
+    </a>
   </div>
 
-  <div id="blog-posts"></div>
+  <!-- Tag filter list -->
+  <section id="tag-filter">
+    <h3>Explore by Tags</h3>
+    <ul class="tag-list">
+      <li><a href="blog/2025/index.html?tag=wildflowers">Wildflowers</a></li>
+      <li><a href="blog/2025/index.html?tag=macro-photography">Macro Photography</a></li>
+      <li><a href="blog/2025/index.html?tag=poway">Poway</a></li>
+      <!-- Add more tags as needed -->
+    </ul>
+  </section>
 
-  <script src="js/blog-tags.js"></script>
-  <script src="js/script.js" defer></script>
+</div>
+
+
+
+
+  <script src="/js/blog-tags.js"></script>
+  <script src="/js/script.js" defer></script>
 
   <footer>
     <p>© <span id="year"></span> Diana Rozenshteyn. All Rights Reserved. | Website designed and built by Diana Rozenshteyn</p>
   </footer>
 </body>
 </html>
+
