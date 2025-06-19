@@ -671,3 +671,13 @@ footer {
   text-decoration: underline;
 }
 
+@media screen and (min-width: 769px) {
+  .overlay {
+    z-index: 1; /* Lower than tag filters which are at 10 */
+    pointer-events: none; /* Prevent it from intercepting clicks */
+  }
+
+  .overlay * {
+    pointer-events: auto; /* Let inner links still be clickable */
+  }
+}
