@@ -697,7 +697,7 @@ footer {
   user-select: none;
   text-decoration: none;
   color: #2c662d;
-  margin: 4px;
+  margin: 2px;
   display: inline-block;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
