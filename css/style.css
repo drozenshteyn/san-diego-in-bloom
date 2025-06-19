@@ -622,26 +622,27 @@ footer {
   text-align: center; /* Center entire tags container */
 }
 
-/* Container holding the tag list */
-#tag-filter {
-  margin-top: 20px;
+/* Shared tag list container style */
+#tag-filter,
+.post-tags {
+  margin-top: 2em;
   display: flex;
-  justify-content: center; /* Center the tag list */
+  justify-content: center;
 }
 
-/* Tag list as a flex container, limited width for nice grouping */
+/* Tag list wrapper: flex container */
 .tag-list {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  display: flex;         /* use flex, not inline-flex for wrapping */
-  gap: 12px;
+  display: flex;
   flex-wrap: wrap;
+  gap: 12px;
   justify-content: center;
-  max-width: 600px;      /* Limit width so tags don’t spread full screen */
+  max-width: 700px;
 }
 
-/* Each tag styling */
+/* Tag list items */
 .tag-list li {
   background-color: #d8f0d4;
   padding: 7px 18px;
@@ -653,7 +654,7 @@ footer {
   transition: background-color 0.3s ease;
 }
 
-/* Hover effect on each tag */
+/* Hover effect */
 .tag-list li:hover {
   background-color: #c1d9bf;
 }
@@ -665,11 +666,12 @@ footer {
   transition: color 0.3s ease;
 }
 
-/* Hover on links */
+/* Hover on tag links */
 .tag-list li a:hover {
   color: #145214;
   text-decoration: underline;
 }
+
 
 @media screen and (min-width: 769px) {
   .blog-page .overlay,
