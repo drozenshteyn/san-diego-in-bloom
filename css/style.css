@@ -672,6 +672,23 @@ footer {
   text-decoration: underline;
 }
 
+#tag-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers the heading and the tag list */
+  margin: 3rem auto 2rem auto;
+  padding: 0 20px;
+  max-width: 900px; /* Optional: gives it a clean width on wide screens */
+}
+
+#tag-filter h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem; /* Tighten the space between heading and tags */
+  color: #2a5d34; /* Or your preferred heading color */
+}
+
 
 @media screen and (min-width: 769px) {
   .blog-page .overlay,
