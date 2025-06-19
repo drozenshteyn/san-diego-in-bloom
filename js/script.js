@@ -117,4 +117,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedTag = urlParams.get("tag");
+
+  if (selectedTag) {
+    const posts = document.querySelectorAll(".blog-preview");
+
+    posts.forEach(post => {
+      const tags = post.dataset.tags.toLowerCase().split(",");
+      if (!tags.includes(selectedTag.toLowerCase())) {
+        post.style.display = "none";
+      } else {
+        post.style.display = "block";
+      }
+    });
+
+    // Optional: update heading to show selected tag
+    const heading = document.querySelector("h2");
+    if (heading) {
+      heading.textContent += ` – Showing posts tagged #${selectedTag}`;
+    }
+  }
+});
 
