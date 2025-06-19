@@ -619,68 +619,69 @@ footer {
 
 .post-tags {
   margin-top: 2em;
+  text-align: center; /* Center entire tags container */
 }
 
-.tag-link {
-  display: inline-block;
-  background-color: #eef6ec;
-  color: #336633;
-  padding: 0.4em 0.7em;
-  margin: 0.3em;
-  border-radius: 15px;
-  text-decoration: none;
-  font-size: 0.9em;
-  transition: background-color 0.3s;
-}
-
-.tag-link:hover {
-  background-color: #d6eadf;
-}
-
+/* Container holding the tag list */
 #tag-filter {
-  text-align: center;
   margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Center the tag list */
 }
 
+/* Tag list as a flex container, limited width for nice grouping */
 .tag-list {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  display: inline-flex;
-  gap: 15px;
+  display: flex;         /* use flex, not inline-flex for wrapping */
+  gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 600px;      /* Limit width so tags don’t spread full screen */
 }
 
+/* Each tag styling */
 .tag-list li {
   background-color: #d8f0d4;
   padding: 7px 18px;
   border-radius: 20px;
   font-size: 1rem;
   font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
 }
 
+/* Hover effect on each tag */
+.tag-list li:hover {
+  background-color: #c1d9bf;
+}
+
+/* Tag links */
 .tag-list li a {
   text-decoration: none;
   color: #2c662d;
   transition: color 0.3s ease;
 }
 
+/* Hover on links */
 .tag-list li a:hover {
   color: #145214;
   text-decoration: underline;
 }
 
+/* Overlay pointer events fix only on blog pages */
 @media screen and (min-width: 769px) {
   .blog-page .overlay {
     z-index: 1;
     pointer-events: none;
   }
-
   .blog-page .overlay * {
     pointer-events: auto;
   }
 }
+
 
 
 
