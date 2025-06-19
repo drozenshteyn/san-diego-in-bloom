@@ -674,13 +674,18 @@ footer {
 @media screen and (min-width: 769px) {
   .blog-page .overlay {
     z-index: 1;
-    pointer-events: none;
+    pointer-events: none; /* Disable pointer events on the overlay background */
   }
 
-  .blog-page .overlay * {
-    pointer-events: auto;
+  /* Enable pointer events only on interactive parts inside overlay */
+  .blog-page .overlay nav,
+  .blog-page .overlay .menu-toggle,
+  .blog-page .overlay .social-media-icons {
+    pointer-events: auto; /* Re-enable interaction only on these elements */
+    z-index: 20; /* Bring above other things if needed */
   }
 }
+
 
 
 
