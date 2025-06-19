@@ -671,16 +671,19 @@ footer {
   text-decoration: underline;
 }
 
-/* Overlay pointer events fix only on blog pages */
 @media screen and (min-width: 769px) {
-  .blog-page .overlay {
+  .blog-page .overlay,
+  .blog-intro .overlay {
     z-index: 1;
     pointer-events: none;
   }
-  .blog-page .overlay * {
+
+  .blog-page .overlay *,
+  .blog-intro .overlay * {
     pointer-events: auto;
   }
 }
+
 
 
 
