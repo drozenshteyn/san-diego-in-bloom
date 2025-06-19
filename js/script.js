@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tagArray.forEach(tag => {
     const tagLink = document.createElement("a");
-    tagLink.href = `/bloom-journal.html?tag=${encodeURIComponent(tag.trim())}`;
+    tagLink.href = `/blog/2025/index.html?tag=${encodeURIComponent(tag.trim())}`;
     tagLink.textContent = `#${tag.trim()}`;
     tagLink.classList.add("tag-link");
     tagContainer.appendChild(tagLink);
