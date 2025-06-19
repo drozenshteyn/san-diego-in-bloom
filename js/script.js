@@ -123,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (selectedTag) {
     const posts = document.querySelectorAll(".blog-preview");
-
     posts.forEach(post => {
       const tags = post.dataset.tags.toLowerCase().split(",");
       if (!tags.includes(selectedTag.toLowerCase())) {
@@ -133,11 +132,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Optional: update heading to show selected tag
     const heading = document.querySelector("h2");
     if (heading) {
       heading.textContent += ` – Showing posts tagged #${selectedTag}`;
     }
   }
 });
+
 
