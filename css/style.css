@@ -681,3 +681,7 @@ footer {
     pointer-events: auto; /* Let inner links still be clickable */
   }
 }
+
+.blog-page .overlay {
+  pointer-events: none;
+}
