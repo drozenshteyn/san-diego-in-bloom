@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Part 1: For EACH blog post, generate clickable tag links inside its .post-tags div
+  // Generate tag links inside blog post pages
   const allPostTags = document.querySelectorAll(".post-tags");
 
   allPostTags.forEach(tagContainer => {
@@ -119,34 +119,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
-  // Part 2: Filter blog posts based on ?tag= in URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const selectedTag = urlParams.get("tag")?.toLowerCase();
+  // FILTERING FUNCTION on /blog/2025/index.html
+  const params = new URLSearchParams(window.location.search);
+  const selectedTag = params.get("tag");
 
   if (selectedTag) {
-    const posts = document.querySelectorAll("article.blog-post");
+    const galleryItems = document.querySelectorAll(".gallery-item");
 
-    posts.forEach(post => {
-      const tagsElement = post.querySelector(".post-tags");
-      if (!tagsElement || !tagsElement.dataset.tags) {
-        post.style.display = "none";
-        return;
-      }
-
-      const tags = tagsElement.dataset.tags.toLowerCase().split(",").map(t => t.trim());
-      if (!tags.includes(selectedTag)) {
-        post.style.display = "none";
+    galleryItems.forEach(item => {
+      const tags = item.dataset.tags || "";
+      if (tags.includes(selectedTag)) {
+        item.style.display = "block";
       } else {
-        post.style.display = "block";
+        item.style.display = "none";
       }
     });
 
     const heading = document.querySelector("h2");
-    if (heading) {
-      heading.textContent += ` – Showing posts tagged #${selectedTag}`;
-    }
+    if (heading) heading.textContent += ` – Tagged: #${selectedTag}`;
   }
 });
+
 
 
