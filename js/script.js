@@ -99,33 +99,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const tagContainer = document.querySelector(".post-tags");
-  if (!tagContainer) return;
+  // Part 1: For EACH blog post, generate clickable tag links inside its .post-tags div
+  const allPostTags = document.querySelectorAll(".post-tags");
 
-  const tags = tagContainer.dataset.tags;
-  if (!tags) return;
+  allPostTags.forEach(tagContainer => {
+    const tags = tagContainer.dataset.tags;
+    if (!tags) return;
 
-  const tagArray = tags.split(",");
-  tagContainer.innerHTML = "";
+    const tagArray = tags.split(",");
+    tagContainer.innerHTML = ""; // clear current content
 
-  tagArray.forEach(tag => {
-    const tagLink = document.createElement("a");
-    tagLink.href = `/blog/2025/index.html?tag=${encodeURIComponent(tag.trim())}`;
-    tagLink.textContent = `#${tag.trim()}`;
-    tagLink.classList.add("tag-link");
-    tagContainer.appendChild(tagLink);
+    tagArray.forEach(tag => {
+      const trimmedTag = tag.trim();
+      const tagLink = document.createElement("a");
+      tagLink.href = `/blog/2025/index.html?tag=${encodeURIComponent(trimmedTag)}`;
+      tagLink.textContent = `#${trimmedTag}`;
+      tagLink.classList.add("tag-link");
+      tagContainer.appendChild(tagLink);
+    });
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
+
+  // Part 2: Filter blog posts based on ?tag= in URL
   const urlParams = new URLSearchParams(window.location.search);
-  const selectedTag = urlParams.get("tag");
+  const selectedTag = urlParams.get("tag")?.toLowerCase();
 
   if (selectedTag) {
-    const posts = document.querySelectorAll(".blog-preview");
+    const posts = document.querySelectorAll("article.blog-post");
+
     posts.forEach(post => {
-      const tags = post.dataset.tags.toLowerCase().split(",");
-      if (!tags.includes(selectedTag.toLowerCase())) {
+      const tagsElement = post.querySelector(".post-tags");
+      if (!tagsElement || !tagsElement.dataset.tags) {
+        post.style.display = "none";
+        return;
+      }
+
+      const tags = tagsElement.dataset.tags.toLowerCase().split(",").map(t => t.trim());
+      if (!tags.includes(selectedTag)) {
         post.style.display = "none";
       } else {
         post.style.display = "block";
