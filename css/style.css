@@ -622,26 +622,45 @@ footer {
   text-align: center; /* Center entire tags container */
 }
 
-/* Container holding the tag list */
-#tag-filter {
+/* === TAG FILTER STYLES === */
+
+/* Landing/journal pages */
+.blog-intro #tag-filter {
   margin-top: 20px;
   display: flex;
-  justify-content: center; /* Center the tag list */
+  justify-content: center;
 }
 
-/* Tag list as a flex container, limited width for nice grouping */
-.tag-list {
+.blog-intro .tag-list {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  display: flex;         /* use flex, not inline-flex for wrapping */
+  display: flex;
   gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 600px;      /* Limit width so tags don’t spread full screen */
+  max-width: 600px;
 }
 
-/* Each tag styling */
+/* Individual blog posts */
+.blog-post #tag-filter {
+  margin-top: 1.5em;
+  display: block;
+  text-align: left;
+  padding-left: 0.5em;
+}
+
+.blog-post .tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Common tag styling */
 .tag-list li {
   background-color: #d8f0d4;
   padding: 7px 18px;
@@ -653,23 +672,21 @@ footer {
   transition: background-color 0.3s ease;
 }
 
-/* Hover effect on each tag */
 .tag-list li:hover {
   background-color: #c1d9bf;
 }
 
-/* Tag links */
 .tag-list li a {
   text-decoration: none;
   color: #2c662d;
   transition: color 0.3s ease;
 }
 
-/* Hover on links */
 .tag-list li a:hover {
   color: #145214;
   text-decoration: underline;
 }
+
 
 /* Overlay pointer events fix only on blog pages */
 @media screen and (min-width: 769px) {
