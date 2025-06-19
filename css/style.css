@@ -622,32 +622,26 @@ footer {
   text-align: center; /* Center entire tags container */
 }
 
-/* Tag container for blog landing pages */
-.blog-page #tag-filter {
+/* Container holding the tag list */
+#tag-filter {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center the tag list */
 }
 
-/* Tag container for individual blog posts */
-.blog-post #tag-filter {
-  margin-top: 20px;
-  text-align: center;
-}
-
-/* Tag list - shared for both blog-page and blog-post */
+/* Tag list as a flex container, limited width for nice grouping */
 .tag-list {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+  display: flex;         /* use flex, not inline-flex for wrapping */
   gap: 12px;
+  flex-wrap: wrap;
   justify-content: center;
-  max-width: 600px;
+  max-width: 600px;      /* Limit width so tags don’t spread full screen */
 }
 
-/* Each tag item */
+/* Each tag styling */
 .tag-list li {
   background-color: #d8f0d4;
   padding: 7px 18px;
@@ -676,7 +670,6 @@ footer {
   color: #145214;
   text-decoration: underline;
 }
-
 
 /* Overlay pointer events fix only on blog pages */
 @media screen and (min-width: 769px) {
